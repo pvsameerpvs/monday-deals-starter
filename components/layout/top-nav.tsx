@@ -18,11 +18,12 @@ import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
+import logo from "@/public/brand/logo.png";
+import icon from "@/public/brand/icon.png";
+
 export default function TopNav() {
-  // Active is the icon *component type* (not JSX element)
   const [active, setActive] = useState<LucideIcon>(Bell);
 
-  // Small helper to apply your clsx style
   const itemCx = (isActive: boolean) =>
     clsx(
       "group flex items-center gap-3 rounded-md px-3 py-2 mx-2 my-1",
@@ -39,7 +40,7 @@ export default function TopNav() {
         <div className="flex items-center gap-4">
           <Link href="/" className="flex items-center gap-2">
             <Image
-              src="/brand/logo.png"
+              src={logo}
               alt="Iknasoft"
               width={25}
               height={25}
@@ -64,9 +65,7 @@ export default function TopNav() {
           </Button>
         </div>
 
-        {/* Right Side Icons (same UI, just with clsx + active) */}
         <div className="flex items-center gap-0 text-gray-600 dark:text-gray-300">
-          {/* Bell with badge */}
           <div
             className={itemCx(active === Bell)}
             onClick={() => setActive(Bell)}
@@ -85,7 +84,6 @@ export default function TopNav() {
             </div>
           </div>
 
-          {/* HardDrive with badge */}
           <div
             className={itemCx(active === HardDrive)}
             onClick={() => setActive(HardDrive)}
@@ -104,7 +102,6 @@ export default function TopNav() {
             </div>
           </div>
 
-          {/* UserRoundPlus */}
           <div
             className={itemCx(active === UserRoundPlus)}
             onClick={() => setActive(UserRoundPlus)}
@@ -114,7 +111,6 @@ export default function TopNav() {
             <UserRoundPlus size={17} />
           </div>
 
-          {/* Puzzle */}
           <div
             className={itemCx(active === Puzzle)}
             onClick={() => setActive(Puzzle)}
@@ -124,7 +120,6 @@ export default function TopNav() {
             <Puzzle size={17} />
           </div>
 
-          {/* Settings */}
           <div
             className={itemCx(active === Settings)}
             onClick={() => setActive(Settings)}
@@ -134,7 +129,6 @@ export default function TopNav() {
             <Settings size={20} />
           </div>
 
-          {/* Search */}
           <div
             className={itemCx(active === Search)}
             onClick={() => setActive(Search)}
@@ -144,7 +138,6 @@ export default function TopNav() {
             <Search size={17} />
           </div>
 
-          {/* Help with dot */}
           <div
             className={itemCx(active === CircleHelp)}
             onClick={() => setActive(CircleHelp)}
@@ -161,10 +154,8 @@ export default function TopNav() {
             </div>
           </div>
 
-          {/* Divider before grip */}
           <div className="h-4 w-px bg-gray-400/50" />
 
-          {/* Grip */}
           <div
             className={itemCx(active === Grip)}
             onClick={() => setActive(Grip)}
@@ -174,19 +165,17 @@ export default function TopNav() {
             <Grip size={25} />
           </div>
 
-          {/* Avatar (unchanged) */}
           <div
             className="group flex items-center gap-1 rounded-l-sm rounded-r-xl bg-white pl-1 p-0 shadow-sm
              transition-colors hover:bg-[var(--primary-selected-hover-color)] dark:hover:bg-black/50"
           >
-            {/* Left side icon container */}
             <div
               className="flex h-5 w-8 items-center justify-center rounded-sm
                bg-[var(--primary-surface-color)] transition-colors
                group-hover:bg-[var(--primary-surface-hover-color)]"
             >
               <Image
-                src="/brand/icon.png"
+                src={icon}
                 alt="Brand Icon"
                 width={20}
                 height={15}
@@ -194,9 +183,8 @@ export default function TopNav() {
               />
             </div>
 
-            {/* Right side avatar */}
             <Avatar className="h-8 w-8">
-              <AvatarImage src="/users/ajmal.jpg" alt="@ajmal" />
+              <AvatarImage />
               <AvatarFallback className="bg-purple-500 text-white font-bold">
                 SP
               </AvatarFallback>

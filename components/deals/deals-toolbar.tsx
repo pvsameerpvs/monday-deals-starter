@@ -20,14 +20,13 @@ import {
 } from "lucide-react";
 import clsx from "clsx";
 
-// ⬇️ add this import
 import { SearchWithColumnPicker } from "@/components/deals/toolbar/SearchWithColumnPicker";
 
 type DealsToolbarProps = {
   className?: string;
   onCreate?: () => void;
   onCreateFrom?: (type: "blank" | "fromTemplate" | "import") => void;
-  onSearchClick?: () => void; // will be called on first type/expand
+  onSearchClick?: () => void;
   onPersonClick?: () => void;
   onFilterClick?: () => void;
   onGroupByClick?: () => void;
@@ -46,20 +45,20 @@ export function DealsToolbar({
 }: DealsToolbarProps) {
   return (
     <div
-      className={clsx("flex flex-wrap items-center gap-4", "py-2", className)}
+      className={clsx("flex flex-wrap items-center gap-4", "py-5", className)}
     >
       {/* New deal — split button */}
       <div className="flex overflow-hidden rounded-md">
         <Button
           onClick={onCreate}
           className="
-            h-9 rounded-none px-4 text-sm font-medium
+            h-9 rounded-none px-1 text-xs font-medium
             bg-[var(--primary-hover-color,#007c89)]
             hover:bg-[var(--primary-hover-color,#007c89)]/90
             text-white
           "
         >
-          <Plus className="mr-2 h-4 w-4" />
+          <Plus className="mr-1 h-4 w-4 text-xs" />
           New deal
         </Button>
 

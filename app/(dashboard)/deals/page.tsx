@@ -64,7 +64,7 @@ export default function DealsPage() {
             </Button>
 
             <Avatar className="h-7 w-7">
-              <AvatarImage src="/users/ajmal.jpg" alt="@ajmal" />
+              <AvatarImage alt="@ajmal" />
               <AvatarFallback className="bg-purple-500 text-white text-[11px]">
                 SP
               </AvatarFallback>

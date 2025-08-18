@@ -1,4 +1,3 @@
-// app/(dashboard)/layout.tsx
 "use client";
 
 import { useEffect, useState } from "react";
@@ -129,8 +128,11 @@ export default function DashboardLayout({
         )}
 
         {/* ⬇️ Only this inner wrapper scrolls vertically */}
-        <main className="flex-1 min-w-0 min-h-0 bg-[var(--primary-highlighted-color)]">
-          <div className="h-full overflow-y-auto overflow-x-hidden overscroll-contain rounded-tl-xl pt-[18px] pr-[30px] pb-0 pl-[38px]">
+        <main
+          className="flex-1 min-w-0 bg-[var(--primary-highlighted-color)]"
+          style={{ height: "calc(100dvh - 56px)" }} // subtract TopNav height
+        >
+          <div className="w-full h-full overflow-y-auto overflow-x-hidden overscroll-contain rounded-tl-xl p-[18px_30px_0_38px]">
             {children}
           </div>
         </main>

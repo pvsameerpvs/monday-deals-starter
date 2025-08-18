@@ -11,7 +11,6 @@ import { AllTabButton } from "./parts/all-tab-button";
 import { TabKebab } from "./parts/tab-kebab";
 import { CardContent } from "../ui/card";
 
-// dnd-kit
 import {
   DndContext,
   MouseSensor,
@@ -49,6 +48,7 @@ export function DealsTabs() {
       { id: "main", label: "Main table", content: <MainTable /> },
       { id: "sales", label: "Sales report", content: <SalesReportView /> },
       { id: "Kanban", label: "Kanban", content: <KanbanView /> },
+      { id: "Pipeline", label: "Pipeline", content: <PipelineView /> },
     ],
     []
   );
@@ -64,7 +64,7 @@ export function DealsTabs() {
   const startRename = (id: string, current: string) => {
     setEditingId(id);
     setDraft(current);
-    setActive(id); // focus the tab being edited
+    setActive(id);
   };
   const commitRename = () => {
     if (!editingId) return;
@@ -125,7 +125,6 @@ export function DealsTabs() {
     });
   };
 
-  // ---- DnD (browser-like) ----
   const sensors = useSensors(
     useSensor(MouseSensor, { activationConstraint: { distance: 5 } }),
     useSensor(TouchSensor, {
